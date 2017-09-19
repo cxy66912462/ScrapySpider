@@ -1,0 +1,117 @@
+-- ----------------------------
+-- Table structure for jobbole_article
+-- ----------------------------
+DROP TABLE IF EXISTS `jobbole_article`;
+CREATE TABLE `jobbole_article` (
+  `url_obj_id` varchar(50) NOT NULL,
+  `url` varchar(300) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `img_url` varchar(300) DEFAULT NULL,
+  `praise_count` int(11) DEFAULT '0',
+  `comment_count` int(11) DEFAULT '0',
+  `collect_count` int(11) DEFAULT '0',
+  `content` longtext,
+  `tags` varchar(100) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`url_obj_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for lagou_job
+-- ----------------------------
+DROP TABLE IF EXISTS `lagou_job`;
+CREATE TABLE `lagou_job` (
+  `url_obj_id` varchar(50) NOT NULL,
+  `url` varchar(300) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `salary` varchar(20) DEFAULT NULL,
+  `job_city` varchar(20) DEFAULT NULL,
+  `work_years` varchar(100) DEFAULT NULL,
+  `degree_need` varchar(30) DEFAULT NULL,
+  `job_type` varchar(20) DEFAULT NULL,
+  `publish_time` varchar(20) DEFAULT NULL,
+  `tags` varchar(100) DEFAULT NULL,
+  `job_advantage` varchar(500) DEFAULT NULL,
+  `job_desc` longtext,
+  `job_addr` varchar(100) DEFAULT NULL,
+  `company_url` varchar(300) DEFAULT NULL,
+  `company_name` varchar(100) DEFAULT NULL,
+  `crawl_time` datetime DEFAULT NULL,
+  `crawl_update_time` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`url_obj_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for proxy_ip
+-- ----------------------------
+DROP TABLE IF EXISTS `proxy_ip`;
+CREATE TABLE `proxy_ip` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(20) DEFAULT NULL,
+  `port` varchar(10) DEFAULT NULL,
+  `speed` float DEFAULT NULL,
+  `proxy_type` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique` (`ip`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=14170 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for zhihu_answer
+-- ----------------------------
+DROP TABLE IF EXISTS `zhihu_answer`;
+CREATE TABLE `zhihu_answer` (
+  `id` bigint(20) NOT NULL,
+  `url` varchar(300) DEFAULT NULL,
+  `question_id` bigint(20) DEFAULT NULL,
+  `author_id` varchar(100) DEFAULT NULL,
+  `content` longtext,
+  `praise_num` int(11) DEFAULT '0',
+  `comment_num` int(11) DEFAULT '0',
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `crawel_time` datetime DEFAULT NULL,
+  `crawel_update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for zhihu_author
+-- ----------------------------
+DROP TABLE IF EXISTS `zhihu_author`;
+CREATE TABLE `zhihu_author` (
+  `user_id` varchar(100) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  `user_type` varchar(20) DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
+  `avatar_url` varchar(200) DEFAULT NULL,
+  `is_org` varchar(10) DEFAULT NULL,
+  `is_advertiser` varchar(10) DEFAULT NULL,
+  `headline` varchar(300) DEFAULT NULL,
+  `follower_count` int(11) DEFAULT '0',
+  `url_token` varchar(150) DEFAULT NULL,
+  `crawl_time` datetime DEFAULT NULL,
+  `crawl_update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Table structure for zhihu_question
+-- ----------------------------
+DROP TABLE IF EXISTS `zhihu_question`;
+CREATE TABLE `zhihu_question` (
+  `id` bigint(11) NOT NULL,
+  `topics` varchar(255) DEFAULT NULL,
+  `url` varchar(300) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `content` longtext,
+  `answer_num` int(11) DEFAULT '0',
+  `comment_num` int(11) DEFAULT '0',
+  `click_num` int(11) DEFAULT '0',
+  `guanzhu_num` int(11) DEFAULT '0',
+  `create_time` datetime DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `crawel_time` datetime DEFAULT NULL,
+  `crawel_update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
